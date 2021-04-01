@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vue testing</title>
+    <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/material-design-icons/3.0.2/iconfont/material-icons.min.css' integrity='sha512-y9glprRcVESvYY3suAqBUYXx0ySbQNvbzzgvLy9F2o38Y7XCNeq/No2gnHjV3+Rjyq5ijoPZRMXotpdw6jcG4g==' crossorigin='anonymous'/>
+    <style>
+        body{
+            text-align: center;
+        }
+        #ToDoApp{
+            max-width: 600px;
+            padding: 16px;
+            margin: 0 auto;
+            border: 1px solid #000;
+        }
+        .title{margin-top: 0;}
+        .list{
+            border: 1px solid #000;
+            max-width: 500px;
+            margin: 20px auto;
+            padding: 7px;
+        }
+        .item{
+            text-align: left;
+            counter-reset: item-counter;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 4px;
+        }
+        .item:not(:first-child){
+            border-bottom: 1px solid #000;
+        }
+        .item::before {
+            counter-increment: item-counter;
+            content: "Task " counter(item-counter) ". ";
+        }
+        .task{
+            /* outline: 1px solid blue; */
+            flex-grow: 1;
+            margin: 0 7px;
+            line-height: 2;
+        }
+        .icons span:hover{
+            cursor: pointer;
+            color: chocolate;
+        }
+    </style>
+</head>
+<body>
+    <template>
+        <h1 class="title">ToDo App</h1>
+        <form action="/">
+            <fieldset>
+                <legend>Add task to list</legend>
+                <label for="add-do">
+                    <input id="add-do" type="text" placeholder="What are you want to do?">
+                </label>
+                <input type="submit" value="Submit">
+            </fieldset>
+        </form>
+        <ol class="list">
+            <li class="item">
+                <div class="task">Lorem</div>
+                <div class="icons">
+                    <span class="material-icons">
+                        edit
+                    </span>
+                    <span class="material-icons">
+                        star_border
+                    </span>
+                    <span class="material-icons">
+                        crop_square
+                        <!-- check_box_outline_blank -->
+                    </span>
+                    <!-- <span class="material-icons">
+                        check
+                    </span> -->
+                    <span class="material-icons">
+                        delete
+                    </span>
+                </div>
+            </li>
+        </ol>
+    </template>
+<hr>
+<hr>
+    <div id="ToDoApp"></div>
+
+    <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
+    <script type="module" src="main.js"></script>
+</body>
+</html>
