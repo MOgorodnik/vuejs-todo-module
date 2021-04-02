@@ -21,19 +21,28 @@ Vue.component('ToDoApp', {
     FormComponent,
     ListComponent
   },
+  prop: ['val'],
   template: `
-  <div id="ToDoApp">
+  <div id="ToDoApp" @input="foo">
     <TitleComponent/>
     <FormComponent/>
     <ListComponent/>
   </div>
-  `
+  `,
+  data() {
+    return {
+      val: this.val
+    }
+  },
+  methods: {
+    foo(e) {
+      console.log(e);
+      this.val = e.target.value;
+    }
+  },
 })
-
 
 new Vue({
   el: '#ToDoApp',
-  template: `
-    <ToDoApp/>
-  `
+  template: `<ToDoApp/>`
 })

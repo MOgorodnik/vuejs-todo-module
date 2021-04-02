@@ -17,6 +17,7 @@
         }
         .title{margin-top: 0;}
         .list{
+            counter-reset: item-counter;
             border: 1px solid #000;
             max-width: 500px;
             margin: 20px auto;
@@ -24,14 +25,13 @@
         }
         .item{
             text-align: left;
-            counter-reset: item-counter;
             display: flex;
             justify-content: space-between;
             align-items: center;
             padding: 4px;
         }
         .item:not(:first-child){
-            border-bottom: 1px solid #000;
+            border-top: 1px solid #000;
         }
         .item::before {
             counter-increment: item-counter;
@@ -85,7 +85,6 @@
             </li>
         </ol>
     </template>
-<hr>
 <hr>
     <div id="ToDoApp"></div>
 
